@@ -1,0 +1,24 @@
+# Secrets — never commit
+.env
+*.env
+!code/.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Generated outputs (regenerate via code/main.py)
+/output.csv
+/sample_output.csv
+
+# Runtime artifacts (cache/checkpoint + per-claim traces)
+code/.cache/
+code/logs/
+
+# Submission build artifact
+/code.zip
+
+# Submission transcript copy (canonical lives in $HOME; never commit)
+/log.txt

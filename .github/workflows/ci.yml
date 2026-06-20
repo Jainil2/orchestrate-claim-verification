@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      # The offline engine self-test imports only engine + schema (no provider SDKs,
+      # no API key) — it's the reproducibility gate that runs on every push.
+      - name: Engine self-test (offline, no API key)
+        run: python code/test_engine.py
+      - name: Lint
+        run: |
+          pip install ruff
+          ruff check code/

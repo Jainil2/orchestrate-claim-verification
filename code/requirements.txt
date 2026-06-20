@@ -1,0 +1,8 @@
+# Core (default Gemini provider)
+google-genai>=1.0.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
+
+# Optional: only needed for the OpenAI-compatible hosted provider (PROVIDER=openai).
+# The local Ollama provider uses stdlib only; the offline engine test needs none of these.
+openai>=1.0.0
